@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', LoadAndLogAndListDNL_bis);
 chrome.storage.onChanged.addListener(restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
 
-
 function changeNASInfo(newInfo)
 {
   document.querySelector("#NASInfo").textContent=newInfo;
@@ -116,7 +115,7 @@ function toggleHideMenu() {
 document.querySelector("#SettingsMenu").addEventListener("click", toggleHideMenu);
 
 function toggleHideDebug() {
-  var x = document.querySelector("#DebugLog");
+  var x = document.querySelector("#Debug");
 
   if (x.className.indexOf("hidesection") == -1) {
     x.className += "hidesection";
@@ -284,6 +283,5 @@ function testConnection()
   });
 
 }
-
 
 document.querySelector("#testConnectionButton").addEventListener("click", testConnection);
