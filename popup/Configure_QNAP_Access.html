@@ -7,7 +7,7 @@
   </head>
 
   <body>
-      <p>QNAP <button id="SettingsMenu"> Settings </button>            </p>
+      <div id="title"><img id="icon" src="icons/48_download.png"><span>Send to QNAP</span><a href="test" id="StationLink" title="Open Download Station" target="_blank"><img src="icons/external-link.svg" width="20" height="20"></a> <button id="SettingsMenu" title="Settings"><img src="icons/cog.svg" width="20" height="20"></button></div>          
        <label id="ErrMsg"></label>
        <hr>
 
@@ -79,28 +79,21 @@
   </tr>
 
     </table>
-     <button type="submit">Save</button>
+     <button type="submit" title="Save Settings"><img src="icons/save.svg" width="15" height="15"></object> Save</button>
   </form>
 
   <hr>
 </div>
 
-
-  <button id="testConnectionButton">test Connection</button>
-  <div>
-  <label id="NASInfo">Unknown</label>
-  </div>
-  <hr>
-
-  <button id="NASrefresh">Refresh Download Jobs</button>
+  <button id="NASrefresh" title="Refresh"><img src="icons/sync.svg" width="20" height="20"></button>
   <div>
   <label id="NASDNLJobNb"> ? Jobs in queue </label>
   </div>
 <table class="NASItemTable" id="NASDownloadTable" style="width:95%">
   <tr>
-    <th scope="col" width="85%">Filename </th>
-    <th scope="col" width="15%">%
-        <button class="Btn3D" type="button">X</button>
+    <th scope="col" width="85%"></th>
+    <th scope="col" width="15%">
+        
     </th>
   </tr>
 
@@ -112,15 +105,16 @@
 
   </ul>
 </div>
-
   <hr>
-<button id="DebugMenu">Debug </button>
-<button id="ClearLogs">Clear logs</button>
-<button id="copyLogs">Copy logs to clipboard</button>
-<div id="DebugLog" class="hidesection">
+  <label id="NASInfo"></label>
+<button id="DebugMenu"><img src="icons/code.svg" width="10" height="10"></object> Debug</button><button id="testConnectionButton"><img src="icons/plug.svg" width="10" height="10"> Test Connection</button>
+<div id="Debug" class="hidesection">
+<button id="ClearLogs"><img src="icons/eraser.svg" width="10" height="10"></object> Clear logs</button>
+<button id="copyLogs"><img src="icons/clipboard.svg" width="10" height="10"></object> Copy logs to clipboard</button>
+<div id="DebugLog">
     Logs
       </div>
-
+</div>
 
 <script src="xmlToJSON.js"></script>
 <script src="../common.js"></script>
