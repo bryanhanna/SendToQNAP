@@ -22,7 +22,8 @@ async function getSettings()
     else {
     NASprotocol = "http";
     }
-
+    var a = document.getElementById('StationLink');
+    a.href =  NASprotocol+"://"+NASaddr+":"+NASport+"/downloadstation/";
 }
 
 
