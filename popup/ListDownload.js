@@ -6,9 +6,7 @@ const addButton = document.querySelector("#NASpress");
 const input = document.querySelector("#NAStest");
 const tableDNL = document.querySelector("#NASDownloadTable");
 const JobNb = document.querySelector("#NASDNLJobNb");
-
 var NASsid="";
-
 
 /* +++++++++++++++++++++++++++++++++
  Fill DOM element with retrieved Nb of download Jobs
@@ -18,7 +16,7 @@ function setJobNb(newInfo)
   JobNb.textContent=newInfo+" Jobs in queue";
 }
 
-
++NASprotocol+" "+res.NASlogin+":"+res.NASpassword+"@"+res.NASaddress+":"+res.NASport+"/"+res.NASdir
 /* +++++++++++++++++++++++++++++++++
  Remove from DOM all download Jobs except first row used as header
 */
@@ -49,8 +47,10 @@ function AddQNAPDNLasTable(hashFile ,filename,rateFile) {
   const fileCol1 = document.createElement('td');
   const fileCol2 = document.createElement('td');
   const fileCol3 = document.createElement('td');
-  const fileProgress = document.createElement('progress');
+  const fileCol4 = document.createElement('td');
   const listBtn = document.createElement('button');
+  const fileProgress = document.createElement('progress');
+
 
   appendLog(" col1="+fileCol1);
   appendLog(" col2="+fileCol2);
@@ -66,9 +66,9 @@ function AddQNAPDNLasTable(hashFile ,filename,rateFile) {
   fileProgress.max = "100";
   appendLog("fprog="+fileProgress.value+"/"+fileProgress.max+" innerHTML="+fileProgress.innerHTML);
 
-  fileCol2.appendChild(fileProgress);
+  fileCol4.appendChild(fileProgress);
   //fileCol2.textContent = rateFile;
-  fileRow.appendChild(fileCol2);
+  fileRow.appendChild(fileCol4);
 
   fileCol3.appendChild(listBtn);
   listBtn.className = "Btn3D";
@@ -151,7 +151,6 @@ async function LoadAndLogAndListDNL_bis() {
     clearError();
     clearPopupError();
     await getSettings();
-
     appendLog(" LogAndListDNL_bis : settings: "+NASprotocol+" "+NASlogin+":"+NASpassword+"@"+NASaddr+":"+NASport+" temp="+NAStempdir+" move="+NASdir);
 /*
     try
@@ -297,9 +296,6 @@ async function ListQNAPDNL(sid) {
     return true;
 }
 
-// WIP
-
-
 /* +++++++++++++++++++++++++++++++++
    return filename from URL
 */
@@ -346,7 +342,7 @@ function LogAndDelDNL(hash) {
     appendLog("Request to send:"+requete);
     xhr.open("POST", requete);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-
+    
     xhr.send(data);
   }
   else {
